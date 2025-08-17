@@ -4,3 +4,7 @@ export const shuffle = <T>(array: T[]): T[] => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 };
+
+export const capitalize = (text: string): string => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}

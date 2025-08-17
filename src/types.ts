@@ -5,11 +5,14 @@ export type AlphabetGroup = {
   to: string[];
 };
 
-export type AlphabetTransform = "ru-ka" | "ka-ru";
+export type AlphabetTransform = "ru-ka" | "ka-ru" | "ru-hy";
+export type AlphabetTextLanguage = "ru" | "ka";
 
 export type AlphabetDescription = {
   transform: AlphabetTransform;
+  textLanguage: AlphabetTextLanguage;
   groups: AlphabetGroup[];
   nameKey: TFuncKey;
   isCustom: boolean;
+  isCaseSensitive?: boolean;
 };

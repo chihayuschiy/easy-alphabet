@@ -40,6 +40,7 @@ const enTranslation = {
     names: {
       "ka-ru": "georgian → russian",
       "ru-ka": "russian → georgian",
+      "ru-hy": "russian → armenian",
     },
   },
 };
@@ -71,6 +72,7 @@ const ruTranslation: typeof enTranslation = {
     names: {
       "ka-ru": "грузинский → русский",
       "ru-ka": "русский → грузинский",
+      "ru-hy": "русский → армянский",
     },
   },
 };
@@ -102,6 +104,7 @@ const kaTranslation: typeof enTranslation = {
     names: {
       "ka-ru": "ქართული → რუსული",
       "ru-ka": "რუსული → ქართული",
+      "ru-hy": "რუსული → სომხური",
     },
   },
 };

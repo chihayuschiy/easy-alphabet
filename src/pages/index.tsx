@@ -16,7 +16,7 @@ import { AlphabetDescription } from "../types";
 import { useBlocks } from "../hooks/use-blocks";
 import { styled } from "../styles";
 import { LanguageSelector } from "../components/language-selectors";
-import { shuffle } from "../utils";
+import { capitalize, shuffle } from "../utils";
 import { AlphabetPicker } from "../components/alphabet-picker";
 
 const Container = styled("div", {
@@ -129,10 +129,14 @@ const Home: NextPage = () => {
   );
   const [text, setText] = useLocalStorage(
     "text",
-    alphabet ? DEFAULT_TEXTS[alphabet.transform] : ""
+    alphabet ? DEFAULT_TEXTS[alphabet.textLanguage] : ""
   );
 
-  const blocks = useBlocks({ text, symbolLimit, groups: alphabet?.groups });
+  // React.useEffect(() => {
+  //   console.log("??", alphabet?.groups.length, alphabet?.groups.reduce((acc, group) => acc + group.to.length, 0));
+  // }, [alphabet]);
+
+  const blocks = useBlocks({ text, symbolLimit, groups: alphabet?.groups, isCaseSensitive: alphabet?.isCaseSensitive });
 
   const { t } = useTranslation();
 
@@ -176,15 +180,12 @@ const Home: NextPage = () => {
     if (!alphabet) {
       return;
     }
-    setText(DEFAULT_TEXTS[alphabet.transform]);
+    setText(DEFAULT_TEXTS[alphabet.textLanguage]);
   }, [alphabet, setText]);
   const selectAlphabet = React.useCallback(
     (alphabet: AlphabetDescription) => {
       setAlphabet(alphabet);
-      console.log("text", text);
-      if (!text) {
-        setText(DEFAULT_TEXTS[alphabet.transform]);
-      }
+      setText(DEFAULT_TEXTS[alphabet.textLanguage]);
     },
     [text, setText, setAlphabet]
   );
@@ -285,6 +286,11 @@ const Home: NextPage = () => {
                         {`${block.alphabetGroup.from.join(
                           ", "
                         )} → ${block.alphabetGroup.to.join(", ")}`}
+                        {block.isCaseSensitive ? (
+                          ` (${block.alphabetGroup.from.map((from) => capitalize(from)).join(
+                            ", "
+                          )} → ${block.alphabetGroup.to.map((to) => to.toLocaleUpperCase()).join(", ")})`
+                        ) : null}
                       </Hint>
                     ) : null}
                     <TextBlock>{block.text}</TextBlock>
