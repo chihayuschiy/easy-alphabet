@@ -31,6 +31,7 @@ const enTranslation = {
   footer: {
     builtBy: "Built by <0>@luixo</0>",
     inspiredBy: "Inspired by <0>Maksim Solohin</0>",
+    hySupport: "Support of Armenian (hy) alphabet <0>@chihayuschiy</0>",
   },
   languagePicker: {
     selectLanguage: "Choose an alphabet:",
@@ -63,6 +64,7 @@ const ruTranslation: typeof enTranslation = {
   footer: {
     builtBy: "Автор - <0>@luixo</0>",
     inspiredBy: "Оригинальная идея - <0>Максим Солохин</0>",
+    hySupport: "Поддержка армянского (hy) алфавита - <0>@chihayuschiy</0>",
   },
   languagePicker: {
     selectLanguage: "Выбери алфавит:",
@@ -94,7 +96,8 @@ const kaTranslation: typeof enTranslation = {
   },
   footer: {
     builtBy: "ავტორი - <0>@luixo</0>",
-    inspiredBy: "ორიგინალური იდეა- <0>მაკსიმ  სოლოხინ</0>",
+    inspiredBy: "ორიგინალური იდეა - <0>მაკსიმ  სოლოხინ</0>",
+    hySupport: "სომხური (hy) ალფავიტის მხარდაჭერა - <0>@chihayuschiy</0>",
   },
   languagePicker: {
     selectLanguage: "აირჩიე ანბანი:",

@@ -21,10 +21,13 @@ import { AlphabetPicker } from "../components/alphabet-picker";
 
 const Container = styled("div", {
   padding: "0 1rem",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
 });
 
 const Main = styled("main", {
-  minHeight: "calc(100vh - 12px)",
+  //minHeight: "calc(100vh - 12px)",
   padding: "16px 0",
   flex: 1,
   display: "flex",
@@ -34,7 +37,6 @@ const Main = styled("main", {
 const Footer = styled("footer", {
   display: "flex",
   flexDirection: "column",
-  flex: 1,
   padding: "12px 0",
   borderTop: "1px solid #eaeaea",
   justifyContent: "center",
@@ -44,6 +46,7 @@ const Footer = styled("footer", {
 const FooterBlock = styled("div", {
   "& + &": {
     marginTop: 8,
+    textAlign: "center",
   },
 });
 
@@ -320,6 +323,12 @@ const Home: NextPage = () => {
                 href="https://palaman.livejournal.com/260927.html"
               />,
             ]}
+          />
+        </FooterBlock>
+        <FooterBlock>
+          <Trans
+            i18nKey="footer.hySupport"
+            components={[<FooterLink key="link" href="https://t.me/chihayuschiy" />]}
           />
         </FooterBlock>
       </Footer>
